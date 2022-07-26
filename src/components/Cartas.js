@@ -3,6 +3,8 @@ import { useContext } from "react"
 import { UserContext } from "../context/UserContext"
 import useJuegos from "../hooks/useJuegos"
 import PlayCircleOutlineIcon from '@mui/icons-material/PlayCircleOutline'
+import MoodIcon from '@mui/icons-material/Mood';
+import MoodBadIcon from '@mui/icons-material/MoodBad';
 import RestartAltIcon from '@mui/icons-material/RestartAlt'
 import Typography from "@mui/material/Typography"
 import Grid from '@mui/material/Grid'
@@ -34,7 +36,7 @@ const Cartas = () => {
         <Grid container>
           <Grid item xs>
             <div className="header">
-              Jugador # 1: {user1?.name}
+              <h2> Jugador # 1 {user1?.name} </h2>   
             </div>
           </Grid>
           <Divider orientation="vertical" flexItem>
@@ -44,49 +46,60 @@ const Cartas = () => {
           </Divider>
           <Grid item xs>
             <div className="header">
-              Jugador # 2: {user2?.name}
+              <h2>Jugador # 2 {user2?.name}</h2>
             </div>
           </Grid>
         </Grid>
         <Typography align="center" marginY={5} component="h5" variant="h5">
-          {ganador}
+          {ganador} 
         </Typography>
         <Typography align="center" marginY={5} component="h5" variant="h5">
           {prioridad}
         </Typography>
-        <Grid container columns={{ xs: 4 }}>
-          <Grid item xs>
-            Cartas Opcionadas
-            {cartaswinner1.map((cartawinner1) => (
+        <Grid container columns={{ xs: 4 }}>          
+          <h2>Cartas Opcionadas</h2>
+          {cartaswinner1.map((cartawinner1) => (
+            <Grid item xs>
               <CadsWinners1 cartawinner1={cartawinner1} key={cartawinner1.code} />
-            ))}
-          </Grid>
-          <Typography align="center" marginY={5} component="h5" variant="h5">
-          </Typography>
-          <Grid item xs>
-            Cartas Opcionadas
-            {cartaswinner2.map((cartawinner2) => (
-              <CadsWinners2 cartawinner2={cartawinner2} key={cartawinner2.code} />
-            ))}
-          </Grid>
-
-        </Grid>
-
-        <Grid container columns={{ xs: 4 }}>
-          <Grid item xs>
-            Cartas Obtenidas
-            {cartasj1.map((cartaj1) => (
-              <Cartaj1 cartaj1={cartaj1} key={cartaj1.code} />
-            ))}
-          </Grid>
+            </Grid>
+          ))}
+          
           <Divider orientation="vertical" flexItem>
           </Divider>
-          <Grid item xs>
-            Cartas Obtenidas
-            {cartasj2.map((cartaj2) => (
-              <Cartaj2 cartaj2={cartaj2} key={cartaj2.code} />
+          <Divider orientation="vertical" flexItem>
+          </Divider>          
+          <Divider orientation="vertical" flexItem>
+          </Divider>                
+          <Divider orientation="vertical" flexItem>
+          </Divider>
+          <h2>Cartas Opcionadas</h2>
+          {cartaswinner2.map((cartawinner2) => (
+            <Grid item xs>
+              <CadsWinners2 cartawinner2={cartawinner2} key={cartawinner2.code} />
+            </Grid>
+          ))}
+        </Grid>
+        <Grid container columns={{ xs: 4 }}>
+          <h2>Cartas Obtenidas</h2>
+          {cartasj1.map((cartaj1) => (
+            <Grid item xs>
+              <Cartaj1 cartaj1={cartaj1} key={cartaj1.code} />
+            </Grid>
+          ))}
+          <Divider orientation="vertical" flexItem>
+          </Divider>          
+          <Divider orientation="vertical" flexItem>
+          </Divider>          
+          <Divider orientation="vertical" flexItem>
+          </Divider>          
+          <Divider orientation="vertical" flexItem>
+          </Divider>
+          <h2>Cartas Obtenidas</h2>
+            {cartasj2.map((cartaj2) => (                  
+              <Grid item xs>
+                <Cartaj2 cartaj2={cartaj2} key={cartaj2.code} />
+              </Grid>
             ))}
-          </Grid>
         </Grid>
       </div>
     </>
