@@ -113,7 +113,6 @@ const GamersProvider = ({ children }) => {
   }, [])
 
   useEffect(() => {
-
     const consultarAPI = async () => {
       const url = `http://deckofcardsapi.com/api/deck/${gamerone}/draw/?count=2`
       const { data } = await axios(url)
@@ -124,7 +123,7 @@ const GamersProvider = ({ children }) => {
   }, [state])
 
   return (
-    <GamersContext.Provider value={{ cartasj1, cartasj2, handleChangeState, state, cartaswinner1, cartaswinner2, ganador, prioridad }}>
+    <GamersContext.Provider value={{ cartasj1, cartasj2, handleChangeState, state, cartaswinner1, cartaswinner2, ganador, prioridad, setCartasj1, setCartasj2 }}>
       {children}
     </GamersContext.Provider>
   );
